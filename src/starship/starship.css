@@ -1,0 +1,27 @@
+:root {
+  --content-background-color: yellow;
+}
+
+.content__starship {
+  padding: 0px 0px 90px 0px;
+  background-color: var(--content-background-color);
+}
+
+.content__button {
+  text-align: center;
+}
+
+input {
+  background: black;
+  font-weight: bold;
+  color: yellow;
+}
+
+.card {
+  border: solid;
+  margin: 10px;
+}
+
+h1 {
+  padding-left: 50px;
+}
