@@ -64,9 +64,7 @@ const Card = ({
   skin_color,
 }) => (
   <div className="card">
-    <div>
-      <h2>{name}</h2>
-    </div>
+    <h2>{name}</h2>
     <p>Birth Year: {birth_year}</p>
     <p>Gender: {gender} </p>
     <p>Eye Color: {eye_color}</p>

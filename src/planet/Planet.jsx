@@ -66,9 +66,7 @@ const Card = ({
   population,
 }) => (
   <div className="card">
-    <div>
-      <h2>{name}</h2>
-    </div>
+    <h2>{name}</h2>
     <p>Rotation: {rotation}</p>
     <p>Orbital Period: {orbital_period}</p>
     <p>Diameter: {diameter}</p>

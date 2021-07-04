@@ -69,9 +69,7 @@ const Card = ({
   starship_class,
 }) => (
     <div className="card">
-      <div>
-        <h2>{name}</h2>
-      </div>
+      <h2>{name}</h2>
       <p>Model: {model}</p>
       <p>Manufacturer: {manufacturer} </p>
       <p>Cost: {cost_in_credits}</p>
