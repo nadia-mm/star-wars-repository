@@ -1,6 +1,6 @@
 # Star Wars App
 
-Customer can browse the Star Wars character, starships, planets and films. The live demo is [here](https://codesandbox.io/s/broken-meadow-4rczo).
+Customer can browse the Star Wars character, starships, planets and films. The live demo is [here](https://codesandbox.io/s/star-wars-repository-fkycx).
 
 ## How to use it
 
@@ -12,6 +12,7 @@ Please follow the instructions in your terminal to use the application :
 - `npm start`
 
 ## Installation
+
 - react: version 17.0.2
 - react-dom: version 17.0.2
 - react-router-dom: version 5.2.0
