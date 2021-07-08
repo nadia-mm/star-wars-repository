@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { films } from '.';
-import './film.css';
+import './film.scss';
 
 export const Film = () => {
   const [searchTerm, setSearchTerm] = useState('');

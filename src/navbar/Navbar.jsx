@@ -1,4 +1,4 @@
-import './navbar.css';
+import './navbar.scss';
 import Hamburger from 'hamburger-react';
 
 export const Navbar = () => {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../api/fetchData";
-import "./planet.css";
+import "./planet.scss";
 
 export const Planet = ({ url }) => {
   const [planets, setPlanets] = useState(null);

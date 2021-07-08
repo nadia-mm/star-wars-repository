@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchData } from "../api/fetchData";
-import "./starship.css";
+import "./starship.scss";
 
 export const Starship = ({ url }) => {
   const [starships, setStarships] = useState(null);

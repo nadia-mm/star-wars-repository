@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchData } from "../api/fetchData";
-import "./people.css";
+import "./people.scss";
 
 export const People = ({ url }) => {
   const [people, setPeople] = useState(undefined);

@@ -1,5 +1,5 @@
 import { HOME_IMAGE_URL } from '../Constant';
-import './home.css';
+import './home.scss';
 
 export const Home = () => {
   return (
