@@ -18,7 +18,7 @@ a {
   margin: var(--li-margin);
   color: var(--navbar-text-color);
 
-  :hover {
+  &:hover {
     background-color: var(--navbar-text-color);
     color: var(--navbar-background-color);
   }
