@@ -1,6 +1,6 @@
 # Star Wars App
 
-Customer can browse the Star Wars character, starships, planets and films.
+User browsers data about the Star Wars characters, starships, planets and filmography.
 The live demo is on https://codesandbox.io/. Please have a look at the About section in the Github page.
 
 ## How to use it
