@@ -1,0 +1,20 @@
+:root {
+  --content-background-color: yellow;
+}
+
+.content__film {
+  padding: 0px 0px 90px 0px;
+  background-color: var(--content-background-color);
+}
+
+.content__film__input {
+  text-align: center;
+}
+
+ul {
+  padding: 50px;
+}
+
+h1 {
+  padding-left: 50px;
+}
