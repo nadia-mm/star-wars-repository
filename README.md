@@ -17,8 +17,10 @@ Please follow the instructions in your terminal to use the application :
 - react: version 17.0.2
 - react-dom: version 17.0.2
 - react-router-dom: version 5.2.0
+- sass: version 1.35.2
 
 ## Resources
 
 - [Star Wars API](https://swapi.dev/)
 - [React](https://github.com/facebook/react)
+- [Saas](https://sass-lang.com/)
