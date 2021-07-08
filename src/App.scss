@@ -3,6 +3,10 @@
   --content-background-color: yellow;
 }
 
+body {
+  margin: 0px;
+}
+
 .content {
   padding: var(--content-padding);
   text-align: justify;
