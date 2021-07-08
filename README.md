@@ -1,6 +1,7 @@
 # Star Wars App
 
-Customer can browse the Star Wars character, starships, planets and films. The live demo is [here](https://codesandbox.io/s/star-wars-repository-fkycx).
+Customer can browse the Star Wars character, starships, planets and films.
+The live demo is on https://codesandbox.io/. Please have a look at the About section in the Github page.
 
 ## How to use it
 
@@ -8,8 +9,8 @@ Please follow the instructions in your terminal to use the application :
 
 - `git clone https://github.com/Nadieva/star-wars-repository.git`
 - `cd star-wars-repository`
-- `npm install`
-- `npm start`
+- `npm install` or `yarn install`
+- `npm start` or `yarn start`
 
 ## Installation
 
