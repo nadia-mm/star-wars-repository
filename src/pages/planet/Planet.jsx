@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { fetchData } from "../api/fetchData";
-import "./people.scss";
+import { useEffect, useState } from "react";
+import { fetchData } from "../../api/fetchData";
+import "./planet.scss";
 
-export const People = ({ url }) => {
-  const [people, setPeople] = useState(undefined);
+export const Planet = ({ url }) => {
+  const [planets, setPlanets] = useState(null);
   const [previousPage, setPreviousPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(url);
@@ -12,7 +12,7 @@ export const People = ({ url }) => {
     const getData = async () => {
       await fetchData(currentPage).then((data) => {
         const { previous, next, results } = data;
-        setPeople(results);
+        setPlanets(results);
         setPreviousPage(previous);
         setNextPage(next);
       });
@@ -40,13 +40,14 @@ export const People = ({ url }) => {
       </div>
     );
   };
+
   return (
-    <div className="content__people">
-      <h1>People</h1>
+    <div className="content__planet">
+      <h1>Planets</h1>
       {getNavigationButtons()}
-      {people !== null && people !== undefined &&
-        people.map((person, key = 0) => (
-          <Card key={`card-people-${key++}`} {...person} />
+      {planets !== null && planets !== undefined &&
+        planets.map((planet, key) => (
+          <Card key={`card-planet-${key}`} {...planet} />
         ))}
       {getNavigationButtons()}
     </div>
@@ -55,22 +56,24 @@ export const People = ({ url }) => {
 
 const Card = ({
   name,
-  mass,
-  birth_year,
-  gender,
-  eye_color,
-  hair_color,
-  height,
-  skin_color,
+  rotation,
+  orbital_period,
+  diameter,
+  climate,
+  gravity,
+  terrain,
+  surface_water,
+  population,
 }) => (
   <div className="card">
     <h2>{name}</h2>
-    <p>Birth Year: {birth_year}</p>
-    <p>Gender: {gender} </p>
-    <p>Eye Color: {eye_color}</p>
-    <p>Hair Color: {hair_color}</p>
-    <p>Mass: {mass} kg</p>
-    <p>Height: {height}</p>
-    <p>Skin Color: {skin_color}</p>
+    <p>Rotation: {rotation}</p>
+    <p>Orbital Period: {orbital_period}</p>
+    <p>Diameter: {diameter}</p>
+    <p>Climate: {climate}</p>
+    <p>Gravity: {gravity} kg</p>
+    <p>Terrain: {terrain}</p>
+    <p>Surface Water: {surface_water}</p>
+    <p>Population: {population}</p>
   </div>
 );

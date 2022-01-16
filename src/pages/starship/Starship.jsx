@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchData } from "../api/fetchData";
+import { fetchData } from "../../api/fetchData";
 import "./starship.scss";
 
 export const Starship = ({ url }) => {

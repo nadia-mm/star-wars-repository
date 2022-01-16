@@ -1,13 +1,13 @@
 import './App.scss';
 import { Navbar } from './navbar';
 import { Footer } from './footer';
-import { People } from './people';
-import { Planet } from './planet';
-import { Home } from './home';
-import { Starship } from './starship';
+import { Home } from './pages/home';
+import { People } from './pages/people';
+import { Planet } from './pages/planet';
+import { Starship } from './pages/starship';
+import { Film } from './pages/film';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { PEOPLE_URL, PLANET_URL, STARSHIP_URL } from './Constant';
-import { Film } from './film';
 
 function App() {
   return (

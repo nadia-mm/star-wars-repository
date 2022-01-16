@@ -1,17 +1,16 @@
 import './navbar.scss';
 import Hamburger from 'hamburger-react';
-
 export const Navbar = () => {
   return (
     <>
-      <div className="navbar">
-        <a href="/home">Home</a>
-        <a href="/people">People</a>
-        <a href="/planets">Planets</a>
-        <a href="/starships">Starships</a>
-        <a href="/films">Films</a>
-      </div>
-      <div className="navbar__mobile">
+    <div className="navbar">
+    <a href="/home" className='menu_item'>Home</a>
+          <a href="/people" className='menu_item' >People</a>
+          <a href="/planets" className='menu_item'>Planets</a>
+          <a href="/starships" className='menu_item'>Starships</a>
+          <a href="/films" className='menu_item'>Films</a>
+        </div>
+   <div className="navbar navbar__mobile">
         <Hamburger
           onToggle={(toggled) => {
             var menuList = document.getElementsByClassName('burgerMenu')
@@ -27,12 +26,11 @@ export const Navbar = () => {
         />
 
         <div className="burgerMenu">
-          <a href="/home">Home</a>
-          <a href="/people">People</a>
-          <a href="/planets">Planets</a>
-          <a href="/starships">Starships</a>
-          <a href="/films">Films</a>
-        </div>
+        <a href="/people" className='menu_item' >People</a>
+          <a href="/planets" className='menu_item'>Planets</a>
+          <a href="/starships" className='menu_item'>Starships</a>
+          <a href="/films" className='menu_item'>Films</a>
+            </div>
       </div>
     </>
   );
