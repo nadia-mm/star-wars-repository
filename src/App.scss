@@ -11,7 +11,7 @@ body {
   padding: var(--content-padding);
   text-align: justify;
   position: absolute;
-  top: 20px;
+  top: 40px;
   width: 100%;
   height: 100%;
   background-color: var(--content-background-color);
@@ -19,6 +19,6 @@ body {
 
 @media screen and (max-width: 419px) {
   .content {
-    margin-top: 100px;
+    top: 10px;
   }
 }

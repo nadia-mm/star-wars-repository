@@ -1,11 +1,11 @@
 :root {
   --li-margin: 10px;
-  --main-bg-color: black;
+  --main-background-color: black;
   --main-text-color: yellow;
 }
 
 .navbar {
-  background-color: var(--main-bg-color);
+  background-color: var(--main-background-color);
   width: 100%;
   position: fixed;
   top: 0;
@@ -15,7 +15,7 @@
     padding: 20px 16px;
     text-decoration: none;
     &:hover {
-      background-color: var(--main-bg-color);
+      background-color: var(--main-background-color);
       color: var(--main-text-color);
       font-weight: bold;
     }
