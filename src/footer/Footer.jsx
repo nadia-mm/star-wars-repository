@@ -1,4 +1,7 @@
+import React from 'react';
 import './footer.scss';
-export const Footer = () => {
-  return <div className="footer">All Rights Reserved 2021 &copy;Nadieva</div>;
-};
+
+// eslint-disable-next-line import/prefer-default-export
+export const Footer = () => (
+  <div className="footer">All Rights Reserved 2021 &copy;Nadieva</div>
+);

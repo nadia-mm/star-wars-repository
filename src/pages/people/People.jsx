@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { fetchData } from "../../api/fetchData";
-import "./people.scss";
+/* eslint-disable no-param-reassign */
+import React, { useEffect, useState } from 'react';
+import { fetchData } from '../../api/fetchData';
+import './people.scss';
 
+// eslint-disable-next-line import/prefer-default-export
 export const People = ({ url }) => {
   const [people, setPeople] = useState(undefined);
   const [previousPage, setPreviousPage] = useState(null);
@@ -20,33 +22,33 @@ export const People = ({ url }) => {
     getData();
   }, [currentPage]);
 
-  const getNavigationButtons = () => {
-    return (
-      <div className="content__button">
-        <input
-          type="button"
-          onClick={() => {
-            setCurrentPage(previousPage);
-          }}
-          value="<<"
-        />
-        <input
-          type="button"
-          onClick={() => {
-            setCurrentPage(nextPage);
-          }}
-          value=">>"
-        />
-      </div>
-    );
-  };
+  const getNavigationButtons = () => (
+    <div className="content__button">
+      <input
+        type="button"
+        onClick={() => {
+          setCurrentPage(previousPage);
+        }}
+        value="<<"
+      />
+      <input
+        type="button"
+        onClick={() => {
+          setCurrentPage(nextPage);
+        }}
+        value=">>"
+      />
+    </div>
+  );
   return (
     <div className="content__people">
       <h1>People</h1>
       {getNavigationButtons()}
-      {people !== null && people !== undefined &&
-        people.map((person, key = 0) => (
-          <Card key={`card-people-${key++}`} {...person} />
+      {people !== null &&
+        people !== undefined &&
+        people.map((person, index = 0) => (
+          // eslint-disable-next-line no-plusplus
+          <Card key={`card-people-${index++}`} {...person} />
         ))}
       {getNavigationButtons()}
     </div>
@@ -56,21 +58,21 @@ export const People = ({ url }) => {
 const Card = ({
   name,
   mass,
-  birth_year,
+  birthYear,
   gender,
-  eye_color,
-  hair_color,
+  eyeColor,
+  hairColor,
   height,
-  skin_color,
+  skinColor,
 }) => (
   <div className="card">
     <h2>{name}</h2>
-    <p>Birth Year: {birth_year}</p>
+    <p>Birth Year: {birthYear}</p>
     <p>Gender: {gender} </p>
-    <p>Eye Color: {eye_color}</p>
-    <p>Hair Color: {hair_color}</p>
+    <p>Eye Color: {eyeColor}</p>
+    <p>Hair Color: {hairColor}</p>
     <p>Mass: {mass} kg</p>
     <p>Height: {height}</p>
-    <p>Skin Color: {skin_color}</p>
+    <p>Skin Color: {skinColor}</p>
   </div>
 );

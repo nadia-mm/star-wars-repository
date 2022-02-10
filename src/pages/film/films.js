@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const films = [
   {
     title: 'Star Wars: Episode I - The Phantom Menace',

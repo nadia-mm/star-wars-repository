@@ -1,21 +1,22 @@
-import { useState } from 'react';
-import { films } from '.';
+import React, { useState } from 'react';
+import { films } from './index';
 import './film.scss';
 
+// eslint-disable-next-line import/prefer-default-export
 export const Film = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const result = films
     .filter((film) => {
       if (searchTerm === '') {
-        return film
-      } else if (
+        return film;
+      }
+      if (
         film.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         film.summary.toLowerCase().includes(searchTerm.toLowerCase())
       ) {
-        return film
-      } else {
-        return ''
+        return film;
       }
+      return '';
     })
     .map((film) => (
       <li key={film.title}>
@@ -39,11 +40,11 @@ export const Film = () => {
           type="text"
           placeholder="Search film..."
           onChange={(event) => {
-            setSearchTerm(event.target.value)
+            setSearchTerm(event.target.value);
           }}
         />
       </div>
       {showResult()}
     </div>
   );
-}
+};

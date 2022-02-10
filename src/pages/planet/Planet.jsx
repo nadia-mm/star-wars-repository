@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
-import { fetchData } from "../../api/fetchData";
-import "./planet.scss";
+/* eslint-disable react/no-array-index-key */
+import React, { useEffect, useState } from 'react';
+import { fetchData } from '../../api/fetchData';
+import './planet.scss';
 
+// eslint-disable-next-line import/prefer-default-export
 export const Planet = ({ url }) => {
   const [planets, setPlanets] = useState(null);
   const [previousPage, setPreviousPage] = useState(null);
@@ -20,32 +22,31 @@ export const Planet = ({ url }) => {
     getData();
   }, [currentPage]);
 
-  const getNavigationButtons = () => {
-    return (
-      <div className="content__button">
-        <input
-          type="button"
-          onClick={() => {
-            setCurrentPage(previousPage);
-          }}
-          value="<<"
-        />
-        <input
-          type="button"
-          onClick={() => {
-            setCurrentPage(nextPage);
-          }}
-          value=">>"
-        />
-      </div>
-    );
-  };
+  const getNavigationButtons = () => (
+    <div className="content__button">
+      <input
+        type="button"
+        onClick={() => {
+          setCurrentPage(previousPage);
+        }}
+        value="<<"
+      />
+      <input
+        type="button"
+        onClick={() => {
+          setCurrentPage(nextPage);
+        }}
+        value=">>"
+      />
+    </div>
+  );
 
   return (
     <div className="content__planet">
       <h1>Planets</h1>
       {getNavigationButtons()}
-      {planets !== null && planets !== undefined &&
+      {planets !== null &&
+        planets !== undefined &&
         planets.map((planet, key) => (
           <Card key={`card-planet-${key}`} {...planet} />
         ))}
@@ -57,23 +58,23 @@ export const Planet = ({ url }) => {
 const Card = ({
   name,
   rotation,
-  orbital_period,
+  orbitalPeriod,
   diameter,
   climate,
   gravity,
   terrain,
-  surface_water,
+  surfaceWater,
   population,
 }) => (
   <div className="card">
     <h2>{name}</h2>
     <p>Rotation: {rotation}</p>
-    <p>Orbital Period: {orbital_period}</p>
+    <p>Orbital Period: {orbitalPeriod}</p>
     <p>Diameter: {diameter}</p>
     <p>Climate: {climate}</p>
     <p>Gravity: {gravity} kg</p>
     <p>Terrain: {terrain}</p>
-    <p>Surface Water: {surface_water}</p>
+    <p>Surface Water: {surfaceWater}</p>
     <p>Population: {population}</p>
   </div>
 );
