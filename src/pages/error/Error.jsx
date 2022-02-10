@@ -1,10 +1,11 @@
 import React from 'react';
 
-const email = process.env.SUPPORT_EMAIL;
+const { REACT_APP_SUPPORT_EMAIL } = process.env;
+
 // eslint-disable-next-line import/prefer-default-export
 export const Error = () => (
   <div>
     An error happened. Please contact
-    <a href={`mailto:${email}`}>support</a>
+    <a href={`mailto:${REACT_APP_SUPPORT_EMAIL}`}> support</a>
   </div>
 );

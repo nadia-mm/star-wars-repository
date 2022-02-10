@@ -11,12 +11,10 @@ import { PEOPLE_URL, PLANET_URL, STARSHIP_URL } from './Constant';
 import './App.scss';
 import { Error } from './pages/error';
 
-// eslint-disable-next-line no-console
-console.log(process.env.SUPPORT_EMAIL);
 const AppRoutes = () => {
   const routes = useRoutes([
     { path: '/', element: <Home /> },
-    { path: '/home', element: <Home /> },
+    { path: 'home', element: <Home /> },
     { path: 'people', element: <People url={PEOPLE_URL} /> },
     { path: 'planets', element: <Planet url={PLANET_URL} /> },
     { path: 'starships', element: <Starship url={STARSHIP_URL} /> },
