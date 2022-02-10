@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { films } from './index';
+import { films } from './films';
 import './film.scss';
 
 // eslint-disable-next-line import/prefer-default-export
