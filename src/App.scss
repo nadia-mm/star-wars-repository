@@ -16,9 +16,3 @@ body {
   height: 100%;
   background-color: var(--content-background-color);
 }
-
-@media screen and (max-width: 419px) {
-  .content {
-    top: 10px;
-  }
-}
