@@ -31,7 +31,10 @@ export const Navbar = () => (
 );
 
 const createMenuItem = (title) => (
-  <a href={`/${title.toLowerCase()}`} className="menu_item">
+  <a
+    key={`${title.toLowerCase()}`}
+    href={`/${title.toLowerCase()}`}
+    className="menu_item">
     {title}
   </a>
 );
