@@ -6,7 +6,9 @@ import { menus } from '../Constant';
 // eslint-disable-next-line import/prefer-default-export
 export const Navbar = () => (
   <>
-    <div className="navbar">{menus.map((menu) => createMenuItem(menu))}</div>
+    <div data-cy="menus" className="navbar">
+      {menus.map((menu) => createMenuItem(menu))}
+    </div>
     <div className="navbar navbar__mobile">
       <Hamburger
         onToggle={(toggled) => {
