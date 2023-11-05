@@ -44,11 +44,10 @@ export const People = ({ url }) => {
     <div className="content__people">
       <h1>People</h1>
       {getNavigationButtons()}
-      {people !== null &&
-        people !== undefined &&
+      {people &&
+        // eslint-disable-next-line no-return-assign
         people.map((person, index = 0) => (
-          // eslint-disable-next-line no-plusplus
-          <Card key={`card-people-${index++}`} {...person} />
+          <Card key={`card-people-${(index += 1)}`} {...person} />
         ))}
       {getNavigationButtons()}
     </div>
@@ -58,12 +57,12 @@ export const People = ({ url }) => {
 const Card = ({
   name,
   mass,
-  birthYear,
+  birth_year: birthYear,
   gender,
-  eyeColor,
-  hairColor,
+  eye_color: eyeColor,
+  hair_color: hairColor,
   height,
-  skinColor,
+  skin_color: skinColor,
 }) => (
   <div className="card">
     <h2>{name}</h2>

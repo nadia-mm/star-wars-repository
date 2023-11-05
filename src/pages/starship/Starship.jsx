@@ -45,8 +45,7 @@ export const Starship = ({ url }) => {
     <div className="content__starship">
       <h1>Starships</h1>
       {getNavigationButtons()}
-      {starships !== null &&
-        starships !== undefined &&
+      {starships &&
         starships.map((starship, index = 0) => (
           // eslint-disable-next-line no-param-reassign
           <Card key={`card-starship-${(index += 1)}`} {...starship} />
@@ -60,15 +59,15 @@ const Card = ({
   name,
   model,
   manufacturer,
-  costInCredits,
+  cost_in_credits: costInCredits,
   length,
   crew,
   passengers,
   cargoCapacity,
   consumables,
-  hyperdriveRating,
+  hyperdrive_rating: hyperdriveRating,
   MGLT,
-  starshipClass,
+  starship_class: starshipClass,
 }) => (
   <div className="card">
     <h2>{name}</h2>

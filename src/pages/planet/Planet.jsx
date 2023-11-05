@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
 import { fetchData } from '../../api/fetchData';
@@ -45,8 +46,7 @@ export const Planet = ({ url }) => {
     <div className="content__planet">
       <h1>Planets</h1>
       {getNavigationButtons()}
-      {planets !== null &&
-        planets !== undefined &&
+      {planets &&
         planets.map((planet, key) => (
           <Card key={`card-planet-${key}`} {...planet} />
         ))}
@@ -57,18 +57,18 @@ export const Planet = ({ url }) => {
 
 const Card = ({
   name,
-  rotation,
-  orbitalPeriod,
+  rotation_period,
+  orbital_period: orbitalPeriod,
   diameter,
   climate,
   gravity,
   terrain,
-  surfaceWater,
+  surface_water: surfaceWater,
   population,
 }) => (
   <div className="card">
     <h2>{name}</h2>
-    <p>Rotation: {rotation}</p>
+    <p>Rotation: {rotation_period}</p>
     <p>Orbital Period: {orbitalPeriod}</p>
     <p>Diameter: {diameter}</p>
     <p>Climate: {climate}</p>
