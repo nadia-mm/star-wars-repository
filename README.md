@@ -7,7 +7,7 @@ The live demo is on https://codesandbox.io/. Please have a look at the About sec
 
 Please follow the instructions in your terminal to use the application :
 
-- `git clone https://github.com/Nadieva/star-wars-repository.git`
+- `git clone https://github.com/nadia-mm/star-wars-repository.git`
 - `cd star-wars-repository`
 - `npm install` or `yarn install`
 - `npm start` or `yarn start`
