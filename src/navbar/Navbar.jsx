@@ -1,42 +1,22 @@
 import React from 'react';
 import './navbar.scss';
-import Hamburger from 'hamburger-react';
 import { menus } from '../Constant';
+import NavbarMobile from './NavbarMobile';
 
-// eslint-disable-next-line import/prefer-default-export
-export const Navbar = () => (
+const Navbar = () => (
   <>
     <div data-cy="menus" className="navbar">
-      {menus.map((menu) => createMenuItem(menu))}
+      {menus.map((menu) => (
+        <a
+          key={menu.toLowerCase()}
+          href={`/${menu.toLowerCase()}`}
+          className="menu-item">
+          {menu}
+        </a>
+      ))}
     </div>
-    <div className="navbar navbar__mobile">
-      <Hamburger
-        onToggle={(toggled) => {
-          const menuList = document.getElementsByClassName('burgerMenu');
-          const content = document.getElementsByClassName('content');
-
-          if (toggled) {
-            menuList[0].style.display = 'block';
-            content[0].style.top = '330px';
-          } else {
-            menuList[0].style.display = 'none';
-            content[0].style.top = '40px';
-          }
-        }}
-      />
-
-      <div className="burgerMenu">
-        {menus.map((menu) => createMenuItem(menu))}
-      </div>
-    </div>
+    <NavbarMobile />
   </>
 );
 
-const createMenuItem = (title) => (
-  <a
-    key={`${title.toLowerCase()}`}
-    href={`/${title.toLowerCase()}`}
-    className="menu_item">
-    {title}
-  </a>
-);
+export default Navbar;

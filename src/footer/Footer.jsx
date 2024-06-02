@@ -3,10 +3,11 @@ import './footer.scss';
 
 const { REACT_APP_SUPPORT_EMAIL } = process.env;
 
-// eslint-disable-next-line import/prefer-default-export
-export const Footer = () => (
+const Footer = () => (
   <div data-cy="footer" className="footer">
-    All Rights Reserved 2021 &copy;
+    All Rights Reserved 2024 &copy;
     <a href={`mailto:${REACT_APP_SUPPORT_EMAIL}`}> Nadia MM</a>
   </div>
 );
+
+export default Footer;

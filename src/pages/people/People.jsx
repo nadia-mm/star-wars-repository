@@ -1,77 +1,64 @@
 /* eslint-disable no-param-reassign */
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
+import { CircularProgress } from '@mui/material';
+import Card from './CardPeople';
+import Error from '../error/Error';
 import { fetchData } from '../../api/fetchData';
+import NavigationPageButtons from '../../NavigationPageButton';
 import './people.scss';
 
-// eslint-disable-next-line import/prefer-default-export
-export const People = ({ url }) => {
-  const [people, setPeople] = useState(undefined);
+const People = ({ url }) => {
+  const [people, setPeople] = useState([]);
   const [previousPage, setPreviousPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(url);
 
-  useEffect(() => {
-    const getData = async () => {
-      await fetchData(currentPage).then((data) => {
-        const { previous, next, results } = data;
-        setPeople(results);
-        setPreviousPage(previous);
-        setNextPage(next);
-      });
-    };
-    getData();
-  }, [currentPage]);
-
-  const getNavigationButtons = () => (
-    <div className="content__button">
-      <input
-        type="button"
-        onClick={() => {
-          setCurrentPage(previousPage);
-        }}
-        value="<<"
-      />
-      <input
-        type="button"
-        onClick={() => {
-          setCurrentPage(nextPage);
-        }}
-        value=">>"
-      />
-    </div>
+  const { isLoading, error, data } = useQuery(
+    ['fetchPeople', currentPage],
+    () => fetchData(currentPage),
+    {
+      keepPreviousData: true,
+    },
   );
+
+  useEffect(() => {
+    if (data) {
+      const { previous, next, results } = data;
+      setPeople(results);
+      setPreviousPage(previous);
+      setNextPage(next);
+    }
+  }, [data]);
+
+  if (error) {
+    return <Error message={error} />;
+  }
+
+  if (isLoading) {
+    return <CircularProgress />;
+  }
+
   return (
     <div className="content__people">
       <h1>People</h1>
-      {getNavigationButtons()}
+      <NavigationPageButtons
+        previousPage={previousPage}
+        nextPage={nextPage}
+        setCurrentPage={setCurrentPage}
+      />
       {people &&
-        // eslint-disable-next-line no-return-assign
-        people.map((person, index = 0) => (
-          <Card key={`card-people-${(index += 1)}`} {...person} />
+        people.map((person, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Card key={`card-people-${index}`} {...person} />
         ))}
-      {getNavigationButtons()}
+      <NavigationPageButtons
+        previousPage={previousPage}
+        nextPage={nextPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };
 
-const Card = ({
-  name,
-  mass,
-  birth_year: birthYear,
-  gender,
-  eye_color: eyeColor,
-  hair_color: hairColor,
-  height,
-  skin_color: skinColor,
-}) => (
-  <div className="card">
-    <h2>{name}</h2>
-    <p>Birth Year: {birthYear}</p>
-    <p>Gender: {gender} </p>
-    <p>Eye Color: {eyeColor}</p>
-    <p>Hair Color: {hairColor}</p>
-    <p>Mass: {mass} kg</p>
-    <p>Height: {height}</p>
-    <p>Skin Color: {skinColor}</p>
-  </div>
-);
+export default People;

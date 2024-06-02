@@ -1,5 +1,6 @@
 :root {
   --content-background-color: yellow;
+  --card-content-padding: 10px;
 }
 
 .content__planet {
@@ -19,5 +20,6 @@ input {
 
 .card {
   border: solid;
-  margin: 10px;
+  margin: var(--card-content-padding);
+  padding: var(--card-content-padding);
 }

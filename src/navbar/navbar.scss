@@ -3,6 +3,9 @@
   --main-background-color: black;
   --main-text-color: yellow;
 }
+body {
+  background-color: var(--main-background-color);
+}
 
 .navbar {
   background-color: var(--main-background-color);
@@ -22,26 +25,64 @@
   }
 }
 
-.navbar__mobile {
-  display: none;
+.bm-burger-button {
+  display : none
 }
 
 @media screen and (max-width: 419px) {
   .navbar {
     display: none;
   }
+  
+  .bm-burger-bars{
+    background:  var(--main-text-color);
+  }
 
-  .navbar__mobile {
-    display: block;
-    overflow: hidden;
+  .bm-burger-button {
+    display : block;
     position: fixed;
-    top: 0;
-    width: 100%;
-    a {
-      width: 100pc;
-    }
-    .hamburger-react {
-      color: var(--main-text-color);
+    width: 36px;
+    height: 30px;
+    right: 36px;
+    top: 5px;
+  }
+
+
+  .bm-burger-bars-hover {
+    color: var(--main-text-color);
+  }
+
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+    color: var(--main-text-color);
+  }
+
+  .bm-menu {
+    color: var(--main-text-color);
+    background: var( --main-background-color);
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+    width: 300px;
+  }
+
+  .bm-item {
+    display: inline-block;
+    color: var(--main-text-color);
+    margin-bottom: 10px;
+    text-decoration: none;
+    &:hover {
+      font-weight: bold;
     }
   }
-}
+
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+
+  .bm-cross {
+    background: var(--main-text-color);
+  }
+ }
+

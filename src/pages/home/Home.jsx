@@ -2,8 +2,7 @@ import React from 'react';
 import { HOME_IMAGE_URL } from '../../Constant';
 import './home.scss';
 
-// eslint-disable-next-line import/prefer-default-export
-export const Home = () => (
+const Home = () => (
   <div className="content__home">
     <h1>Home</h1>
     <div className="content__text_img">
@@ -16,3 +15,5 @@ export const Home = () => (
     </div>
   </div>
 );
+
+export default Home;

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { films } from './films';
 import './film.scss';
 
-// eslint-disable-next-line import/prefer-default-export
-export const Film = () => {
+const Film = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const result = films
     .filter((film) => {
@@ -48,3 +47,5 @@ export const Film = () => {
     </div>
   );
 };
+
+export default Film;

@@ -1,80 +1,64 @@
 /* eslint-disable camelcase */
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import { CircularProgress } from '@mui/material';
+import Card from './CardPlanet';
+import Error from '../error/Error';
 import { fetchData } from '../../api/fetchData';
+import NavigationPageButtons from '../../NavigationPageButton';
 import './planet.scss';
 
-// eslint-disable-next-line import/prefer-default-export
-export const Planet = ({ url }) => {
+const Planet = ({ url }) => {
   const [planets, setPlanets] = useState(null);
   const [previousPage, setPreviousPage] = useState(null);
   const [nextPage, setNextPage] = useState(null);
   const [currentPage, setCurrentPage] = useState(url);
 
-  useEffect(() => {
-    const getData = async () => {
-      await fetchData(currentPage).then((data) => {
-        const { previous, next, results } = data;
-        setPlanets(results);
-        setPreviousPage(previous);
-        setNextPage(next);
-      });
-    };
-    getData();
-  }, [currentPage]);
-
-  const getNavigationButtons = () => (
-    <div className="content__button">
-      <input
-        type="button"
-        onClick={() => {
-          setCurrentPage(previousPage);
-        }}
-        value="<<"
-      />
-      <input
-        type="button"
-        onClick={() => {
-          setCurrentPage(nextPage);
-        }}
-        value=">>"
-      />
-    </div>
+  const { isLoading, error, data } = useQuery(
+    ['fetchPlanets', currentPage],
+    () => fetchData(currentPage),
+    {
+      keepPreviousData: true,
+    },
   );
+
+  useEffect(() => {
+    if (data) {
+      const { previous, next, results } = data;
+      setPlanets(results);
+      setPreviousPage(previous);
+      setNextPage(next);
+    }
+  }, [data]);
+
+  if (error) {
+    return <Error message={error} />;
+  }
+
+  if (isLoading) {
+    return <CircularProgress />;
+  }
 
   return (
     <div className="content__planet">
       <h1>Planets</h1>
-      {getNavigationButtons()}
+      <NavigationPageButtons
+        previousPage={previousPage}
+        nextPage={nextPage}
+        setCurrentPage={setCurrentPage}
+      />
       {planets &&
-        planets.map((planet, key) => (
-          <Card key={`card-planet-${key}`} {...planet} />
+        planets.map((planet, index) => (
+          <Card key={`card-planet-${index}`} {...planet} />
         ))}
-      {getNavigationButtons()}
+      <NavigationPageButtons
+        previousPage={previousPage}
+        nextPage={nextPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };
 
-const Card = ({
-  name,
-  rotation_period,
-  orbital_period: orbitalPeriod,
-  diameter,
-  climate,
-  gravity,
-  terrain,
-  surface_water: surfaceWater,
-  population,
-}) => (
-  <div className="card">
-    <h2>{name}</h2>
-    <p>Rotation: {rotation_period}</p>
-    <p>Orbital Period: {orbitalPeriod}</p>
-    <p>Diameter: {diameter}</p>
-    <p>Climate: {climate}</p>
-    <p>Gravity: {gravity} kg</p>
-    <p>Terrain: {terrain}</p>
-    <p>Surface Water: {surfaceWater}</p>
-    <p>Population: {population}</p>
-  </div>
-);
+export default Planet;
