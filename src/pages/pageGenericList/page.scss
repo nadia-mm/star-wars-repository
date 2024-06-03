@@ -1,0 +1,27 @@
+:root {
+  --content-background-color: yellow;
+  --content-text-color: black;
+  --card-content-padding: 10px;
+}
+
+
+.content {
+  padding: 0px 0px 90px 0px;
+  background-color: var(--content-background-color);
+}
+
+.card {
+  border: solid;
+  margin: var(--card-content-padding);
+  padding: var(--card-content-padding);
+}
+
+input {
+  background: var(--content-text-color);
+  font-weight: bold;
+  color: var( --content-background-color);
+} 
+
+.content__button {
+  text-align: center;
+}
