@@ -12,6 +12,7 @@ body {
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 1;
   a {
     float: left;
     color: var(--main-text-color);
@@ -36,6 +37,7 @@ body {
   
   .bm-burger-bars{
     background:  var(--main-text-color);
+    border: solid;
   }
 
   .bm-burger-button {

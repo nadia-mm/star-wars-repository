@@ -8,7 +8,7 @@ const CardStarship = ({
   length,
   crew,
   passengers,
-  cargoCapacity,
+  cargo_capacity: cargoCapacity,
   consumables,
   hyperdrive_rating: hyperdriveRating,
   MGLT,

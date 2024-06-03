@@ -40,7 +40,7 @@ const PageGenericList = ({ url, title, CardComponent }) => {
   }
 
   return (
-    <div className={`content content__${title.toLowerCase()}`}>
+    <div className="content__page">
       <h1>{title}</h1>
       <NavigationPageButtons
         previousPage={previousPage}
