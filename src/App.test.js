@@ -1,13 +1,15 @@
-import { render } from '@testing-library/react';
 import React from 'react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
+import '@testing-library/jest-dom';
 
 test('renders the home page', () => {
   render(<App />);
-  const homeTitle = document.getElementsByTagName('h1')[0].textContent;
-  expect(homeTitle).toBe('Home');
-  const homeContent = document.getElementsByTagName('p')[0].textContent;
-  expect(homeContent).toBe(
-    'Hello, Please search infomation about the Star Wars charaters, planets or starships',
-  );
+
+  expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Home');
+  expect(
+    screen.getByText(
+      'Hello, Please search infomation about the Star Wars charaters, planets or starships',
+    ),
+  ).toBeInTheDocument();
 });

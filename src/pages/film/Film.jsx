@@ -4,31 +4,30 @@ import './film.scss';
 
 const Film = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const result = films
-    .filter((film) => {
-      if (searchTerm === '') {
-        return film;
-      }
-      if (
-        film.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        film.summary.toLowerCase().includes(searchTerm.toLowerCase())
-      ) {
-        return film;
-      }
-      return '';
-    })
-    .map((film) => (
-      <li key={film.title}>
-        <h2>{film.title}</h2>
-        <h4>{film.summary}</h4>
-      </li>
-    ));
 
-  const showResult = () => {
-    if (result.length > 0) {
-      return <ul>{result}</ul>;
+  const filteredFilms = films.filter((film) => {
+    const searchTermLower = searchTerm.trim().toLowerCase();
+    return (
+      searchTerm === '' ||
+      film.title.toLowerCase().includes(searchTermLower) ||
+      film.summary.toLowerCase().includes(searchTermLower)
+    );
+  });
+
+  const renderResults = () => {
+    if (filteredFilms.length === 0) {
+      return <h2>No results found</h2>;
     }
-    return <h2>No results found</h2>;
+    return (
+      <ul>
+        {filteredFilms.map((film) => (
+          <li key={film.id}>
+            <h2>{film.title}</h2>
+            <h4>{film.summary}</h4>
+          </li>
+        ))}
+      </ul>
+    );
   };
 
   return (
@@ -38,12 +37,10 @@ const Film = () => {
         <input
           type="text"
           placeholder="Search film..."
-          onChange={(event) => {
-            setSearchTerm(event.target.value);
-          }}
+          onChange={(event) => setSearchTerm(event.target.value)}
         />
       </div>
-      {showResult()}
+      {renderResults()}
     </div>
   );
 };

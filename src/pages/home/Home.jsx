@@ -11,7 +11,7 @@ const Home = () => (
         Please search infomation about the Star Wars charaters, planets or
         starships
       </p>
-      <img src={HOME_IMAGE_URL} alt="I__am_your_father_picture" />
+      <img src={HOME_IMAGE_URL} alt="Text says I am your father" />
     </div>
   </div>
 );

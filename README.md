@@ -14,7 +14,7 @@ Please follow the instructions in your terminal to use the application :
 
 ## DEMO
 
-![](https://github.com/nadia-mm/star-wars-repository/blob/master/gif/demo.gif)
+![](https://github.com/nadia-mm/star-wars-repository/blob/master/gif/demo26102024.gif)
 
 ## Resources
 
