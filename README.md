@@ -12,6 +12,12 @@ Please follow the instructions in your terminal to use the application :
 - `npm install` or `yarn install`
 - `npm start` or `yarn start`
 
+## How to run unit tests
+
+Please follow the instructions in your terminal to use the application :
+
+- `npm test` or `yarn test`
+
 ## DEMO
 
 ![](https://github.com/nadia-mm/star-wars-repository/blob/master/gif/demo26102024.gif)
